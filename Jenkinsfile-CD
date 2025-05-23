@@ -79,14 +79,14 @@ pipeline {
                     }
 
                     def services = [
-                        apiGateway: ['repoName': 'api-gateway', 'branch': params.API_GATEWAY_BRANCH, 'helmName': 'spring-petclinic-api-gateway'],
-                        adminServer: ['repoName': 'admin-server', 'branch': params.ADMIN_SERVER_BRANCH, 'helmName': 'spring-petclinic-admin-server'],
-                        configServer: ['repoName': 'config-server', 'branch': params.CONFIG_SERVER_BRANCH, 'helmName': 'spring-petclinic-config-server'],
-                        discoveryServer: ['repoName': 'discovery-server', 'branch': params.DISCOVERY_SERVER_BRANCH, 'helmName': 'spring-petclinic-discovery-server'],
-                        customersService: ['repoName': 'customers-service', 'branch': params.CUSTOMERS_SERVICE_BRANCH, 'helmName': 'spring-petclinic-customers-service'],
-                        genaiService: ['repoName': 'genai-service', 'branch': params.GENAI_SERVICE_BRANCH, 'helmName': 'spring-petclinic-genai-service'],
-                        vetsService: ['repoName': 'vets-service', 'branch': params.VETS_SERVICE_BRANCH, 'helmName': 'spring-petclinic-vets-service'],
-                        visitsService: ['repoName': 'visits-service', 'branch': params.VISITS_SERVICE_BRANCH, 'helmName': 'spring-petclinic-visits-service'],
+                        api-gateway: ['repoName': 'api-gateway', 'branch': params.API_GATEWAY_BRANCH, 'helmName': 'spring-petclinic-api-gateway'],
+                        admin-server: ['repoName': 'admin-server', 'branch': params.ADMIN_SERVER_BRANCH, 'helmName': 'spring-petclinic-admin-server'],
+                        config-server: ['repoName': 'config-server', 'branch': params.CONFIG_SERVER_BRANCH, 'helmName': 'spring-petclinic-config-server'],
+                        discovery-server: ['repoName': 'discovery-server', 'branch': params.DISCOVERY_SERVER_BRANCH, 'helmName': 'spring-petclinic-discovery-server'],
+                        customers-service: ['repoName': 'customers-service', 'branch': params.CUSTOMERS_SERVICE_BRANCH, 'helmName': 'spring-petclinic-customers-service'],
+                        genai-service: ['repoName': 'genai-service', 'branch': params.GENAI_SERVICE_BRANCH, 'helmName': 'spring-petclinic-genai-service'],
+                        vets-service: ['repoName': 'vets-service', 'branch': params.VETS_SERVICE_BRANCH, 'helmName': 'spring-petclinic-vets-service'],
+                        visits-service: ['repoName': 'visits-service', 'branch': params.VISITS_SERVICE_BRANCH, 'helmName': 'spring-petclinic-visits-service'],
                     ]
 
                     sh "kubectl get namespace ${env.DEPLOY_NAMESPACE} || kubectl create namespace ${env.DEPLOY_NAMESPACE}"
