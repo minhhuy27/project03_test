@@ -8,6 +8,7 @@ pipeline {
         DEFAULT_NAMESPACE_PREFIX = "dev-review"
         GIT_REPO_CODE = "https://github.com/HCMUS-DevOps-Projects/project02.git"
         DOCKER_USER = "tlvu2004"
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     parameters {
@@ -64,6 +65,12 @@ pipeline {
         stage('Handle Deploy or Undeploy') {
             steps {
                 script {
+                    sh '''
+                        echo "=== KUBECONFIG: $KUBECONFIG ==="
+                        kubectl config current-context
+                        kubectl get ns
+                    '''
+
                     if (params.ACTION == 'Undeploy') {
                         echo "Deleting namespace ${env.DEPLOY_NAMESPACE}..."
                         sh "kubectl delete namespace ${env.DEPLOY_NAMESPACE} --ignore-not-found"
