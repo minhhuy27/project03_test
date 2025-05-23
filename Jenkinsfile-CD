@@ -28,6 +28,7 @@ pipeline {
     stages {
         stage('Clone Helm Repository') {
             steps {
+                sh "rm -rf project02-k8s"
                 sh "git clone ${env.HELM_CHART_REPO} project02-k8s"
             }
         }
